@@ -9,7 +9,7 @@ class DiscoverProvider extends ChangeNotifier {
   List<VideoPost> videos = [];
 
   Future<void> loadNextPage() async {
-    await Future.delayed(const Duration(seconds: 2));
+    // await Future.delayed(const Duration(seconds: 2)); // Simulate http delay response
 
     final List<VideoPost> newVideos =
         videoPosts
