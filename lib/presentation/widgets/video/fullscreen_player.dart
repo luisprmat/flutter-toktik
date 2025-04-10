@@ -23,6 +23,15 @@ class _FullscreenPlayerState extends State<FullscreenPlayer> {
   void initState() {
     super.initState();
 
+    final bool isFromNetwork = widget.videoUrl.startsWith('http');
+
+    if (isFromNetwork) {
+      _controller = VideoPlayerController.networkUrl(
+        Uri.parse(widget.videoUrl),
+      );
+      
+      return;
+    }
     _controller =
         VideoPlayerController.asset(widget.videoUrl)
           ..setVolume(0)
